@@ -5,7 +5,7 @@ metadata:
   labels:
     app: toy-nginx
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: toy-nginx
