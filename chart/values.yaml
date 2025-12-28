@@ -1,6 +1,6 @@
 image:
-  repository: nginx
-  tag: "1.27.0-alpine" # This is what Flux will update
+  repository: farbodbj/toy-nginx # {"$imagepolicy": "flux-system:toy-nginx:tag"}
+  tag: "1.0.0"
   pullPolicy: IfNotPresent
 
 replicaCount: 1
