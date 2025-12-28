@@ -1,0 +1,12 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: toy-argocd-app
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/farbodbj/argocd-test-repo
+  ref:
+    branch: main  # or your branch
+  secretRef:
+    name: flux-git-credentials

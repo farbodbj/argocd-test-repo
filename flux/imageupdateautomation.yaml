@@ -1,0 +1,26 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageUpdateAutomation
+metadata:
+  name: toy-nginx-automation
+  namespace: flux-system
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: argocd-test-repo
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        name: flux-bot
+        email: flux-bot@example.com
+      messageTemplate: |
+        chore: update image tag for toy-nginx to {{range .Updated.Images}}{{.NewTag}}{{end}}
+    push:
+      branch: main
+    secretRef:
+      name: flux-git-credentials
+  update:
+    strategy: Setters
