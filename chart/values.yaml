@@ -1,0 +1,17 @@
+image:
+  repository: nginx
+  tag: "1.27.0-alpine" # This is what Flux will update
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+resources:
+  requests:
+    cpu: "50m"
+    memory: "32Mi"
+  limits:
+    cpu: "100m"
+    memory: "64Mi"
+
+service:
+  type: ClusterIP
+  port: 80
